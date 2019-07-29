@@ -1,0 +1,61 @@
+package com.mvit.json001.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.mvit.json001.model.Usuario;
+
+
+
+
+/**
+ * @author victor marquez
+ *
+ */
+@Component
+public class DaoImpl {
+
+	static ArrayList<Usuario> usuarios = null;
+	static {
+
+		usuarios = new ArrayList<Usuario>();
+		Usuario product1 = new Usuario(1, "Alberto Vera");
+		Usuario product2 = new Usuario(2, "Juan Pérez");
+		Usuario product3 = new Usuario(3, "Rodolfo Pérez");
+		usuarios.add(product1);
+		usuarios.add(product2);
+		usuarios.add(product3);
+
+	}
+
+	public Usuario getUsuario(int nombreId) {
+
+		for (Usuario usuario : usuarios) {
+			if (usuario.getnombreId()==nombreId) {
+				return usuario;
+			}
+		}
+		return null;
+	}
+
+	public List<Usuario> getAllUsuarios() {
+
+		return usuarios;
+	}
+	
+
+	public void addUsuario(Usuario usuario) {
+		
+		usuarios.add(usuario);
+		
+	}
+
+	public void addUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}
